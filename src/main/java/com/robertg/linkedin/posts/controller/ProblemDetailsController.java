@@ -26,9 +26,9 @@ public class ProblemDetailsController {
 class NameNotFoundException extends RuntimeException{}
 
 @RestControllerAdvice
-class ErrorHandler{
+class ErrorHandler {
 
-    @ExceptionHandler(value = {NameNotFoundException.class})
+    @ExceptionHandler(value = NameNotFoundException.class)
     public ProblemDetail nameNotFoundException(){
         return ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(404), "The requested name doesn't exist.");
     }
